@@ -6,14 +6,14 @@
   </context>
   <operator activated="true" class="process" compatibility="7.4.000" expanded="true" name="Process">
     <parameter key="logverbosity" value="init"/>
-    <parameter key="resultfile" value="C:\Users\isaac\OneDrive\Documents\IT Study\Data Analytics\Brighton MSc\Modules\Data Mining and Knowledge Discovery in Data\assessment\adult\rm\report\naive-bayes.res"/>
+    <parameter key="resultfile" value="C:\Users\isaac\OneDrive\Documents\IT Study\Data Analytics\Brighton MSc\Modules\Data Mining and Knowledge Discovery in Data\assessment\adult\rm\report\decision-tree.res"/>
     <parameter key="random_seed" value="2001"/>
     <parameter key="send_mail" value="never"/>
     <parameter key="notification_email" value=""/>
     <parameter key="process_duration_for_mail" value="30"/>
     <parameter key="encoding" value="SYSTEM"/>
     <process expanded="true">
-      <operator activated="true" class="retrieve" compatibility="7.4.000" expanded="true" height="68" name="Retrieve adult" width="90" x="112" y="34">
+      <operator activated="true" class="retrieve" compatibility="7.4.000" expanded="true" height="68" name="Retrieve adult" width="90" x="45" y="34">
         <parameter key="repository_entry" value="//adult/data/adult"/>
       </operator>
       <operator activated="true" class="concurrency:cross_validation" compatibility="7.4.000" expanded="true" height="145" name="Cross Validation" width="90" x="313" y="34">
@@ -25,11 +25,28 @@
         <parameter key="local_random_seed" value="1992"/>
         <parameter key="enable_parallel_execution" value="true"/>
         <process expanded="true">
-          <operator activated="true" class="naive_bayes" compatibility="7.4.000" expanded="true" height="82" name="Naive Bayes" width="90" x="112" y="85">
-            <parameter key="laplace_correction" value="true"/>
+          <operator activated="true" class="h2o:logistic_regression" compatibility="7.4.000" expanded="true" height="103" name="Logistic Regression" width="90" x="112" y="34">
+            <parameter key="solver" value="AUTO"/>
+            <parameter key="reproducible" value="false"/>
+            <parameter key="maximum_number_of_threads" value="4"/>
+            <parameter key="use_regularization" value="false"/>
+            <parameter key="lambda_search" value="false"/>
+            <parameter key="number_of_lambdas" value="0"/>
+            <parameter key="lambda_min_ratio" value="0.0"/>
+            <parameter key="early_stopping" value="true"/>
+            <parameter key="stopping_rounds" value="3"/>
+            <parameter key="stopping_tolerance" value="0.001"/>
+            <parameter key="standardize" value="true"/>
+            <parameter key="non-negative_coefficients" value="false"/>
+            <parameter key="compute_p-values" value="true"/>
+            <parameter key="remove_collinear_columns" value="true"/>
+            <parameter key="add_intercept" value="true"/>
+            <parameter key="missing_values_handling" value="MeanImputation"/>
+            <parameter key="max_iterations" value="0"/>
+            <parameter key="max_runtime_seconds" value="0"/>
           </operator>
-          <connect from_port="training set" to_op="Naive Bayes" to_port="training set"/>
-          <connect from_op="Naive Bayes" from_port="model" to_port="model"/>
+          <connect from_port="training set" to_op="Logistic Regression" to_port="training set"/>
+          <connect from_op="Logistic Regression" from_port="model" to_port="model"/>
           <portSpacing port="source_training set" spacing="0"/>
           <portSpacing port="sink_model" spacing="0"/>
           <portSpacing port="sink_through 1" spacing="0"/>
@@ -54,12 +71,12 @@
           <portSpacing port="sink_performance 2" spacing="0"/>
         </process>
       </operator>
-      <operator activated="true" class="write_as_text" compatibility="7.4.000" expanded="true" height="82" name="Write as Text (2)" width="90" x="447" y="187">
-        <parameter key="result_file" value="C:\Users\isaac\OneDrive\Documents\IT Study\Data Analytics\Brighton MSc\Modules\Data Mining and Knowledge Discovery in Data\assessment\adult\rm\report\naive-bayes.mod.res"/>
+      <operator activated="true" class="write_as_text" compatibility="7.4.000" expanded="true" height="82" name="Write as Text (2)" width="90" x="514" y="187">
+        <parameter key="result_file" value="C:\Users\isaac\OneDrive\Documents\IT Study\Data Analytics\Brighton MSc\Modules\Data Mining and Knowledge Discovery in Data\assessment\adult\rm\report\logit.mod.res"/>
         <parameter key="encoding" value="SYSTEM"/>
       </operator>
-      <operator activated="true" class="write_as_text" compatibility="7.4.000" expanded="true" height="82" name="Write as Text" width="90" x="514" y="85">
-        <parameter key="result_file" value="C:\Users\isaac\OneDrive\Documents\IT Study\Data Analytics\Brighton MSc\Modules\Data Mining and Knowledge Discovery in Data\assessment\adult\rm\report\naive-bayes.res"/>
+      <operator activated="true" class="write_as_text" compatibility="7.4.000" expanded="true" height="82" name="Write as Text" width="90" x="514" y="34">
+        <parameter key="result_file" value="C:\Users\isaac\OneDrive\Documents\IT Study\Data Analytics\Brighton MSc\Modules\Data Mining and Knowledge Discovery in Data\assessment\adult\rm\report\logit.res"/>
         <parameter key="encoding" value="SYSTEM"/>
       </operator>
       <connect from_op="Retrieve adult" from_port="output" to_op="Cross Validation" to_port="example set"/>

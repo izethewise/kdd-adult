@@ -6,7 +6,7 @@
   </context>
   <operator activated="true" class="process" compatibility="7.4.000" expanded="true" name="Process">
     <parameter key="logverbosity" value="init"/>
-    <parameter key="resultfile" value="C:\Users\isaac\OneDrive\Documents\IT Study\Data Analytics\Brighton MSc\Modules\Data Mining and Knowledge Discovery in Data\assessment\adult\rm\report\naive-bayes.res"/>
+    <parameter key="resultfile" value="C:\Users\isaac\OneDrive\Documents\IT Study\Data Analytics\Brighton MSc\Modules\Data Mining and Knowledge Discovery in Data\assessment\adult\rm\report\decision-tree.res"/>
     <parameter key="random_seed" value="2001"/>
     <parameter key="send_mail" value="never"/>
     <parameter key="notification_email" value=""/>
@@ -25,11 +25,25 @@
         <parameter key="local_random_seed" value="1992"/>
         <parameter key="enable_parallel_execution" value="true"/>
         <process expanded="true">
-          <operator activated="true" class="naive_bayes" compatibility="7.4.000" expanded="true" height="82" name="Naive Bayes" width="90" x="112" y="85">
-            <parameter key="laplace_correction" value="true"/>
+          <operator activated="true" class="concurrency:parallel_random_forest" compatibility="7.4.000" expanded="true" height="82" name="Random Forest" width="90" x="112" y="34">
+            <parameter key="number_of_trees" value="10"/>
+            <parameter key="criterion" value="gain_ratio"/>
+            <parameter key="maximal_depth" value="20"/>
+            <parameter key="apply_pruning" value="true"/>
+            <parameter key="confidence" value="0.25"/>
+            <parameter key="apply_prepruning" value="true"/>
+            <parameter key="minimal_gain" value="0.1"/>
+            <parameter key="minimal_leaf_size" value="2"/>
+            <parameter key="minimal_size_for_split" value="4"/>
+            <parameter key="number_of_prepruning_alternatives" value="3"/>
+            <parameter key="guess_subset_ratio" value="true"/>
+            <parameter key="subset_ratio" value="0.2"/>
+            <parameter key="voting_strategy" value="confidence vote"/>
+            <parameter key="use_local_random_seed" value="false"/>
+            <parameter key="local_random_seed" value="1992"/>
           </operator>
-          <connect from_port="training set" to_op="Naive Bayes" to_port="training set"/>
-          <connect from_op="Naive Bayes" from_port="model" to_port="model"/>
+          <connect from_port="training set" to_op="Random Forest" to_port="training set"/>
+          <connect from_op="Random Forest" from_port="model" to_port="model"/>
           <portSpacing port="source_training set" spacing="0"/>
           <portSpacing port="sink_model" spacing="0"/>
           <portSpacing port="sink_through 1" spacing="0"/>
@@ -54,16 +68,11 @@
           <portSpacing port="sink_performance 2" spacing="0"/>
         </process>
       </operator>
-      <operator activated="true" class="write_as_text" compatibility="7.4.000" expanded="true" height="82" name="Write as Text (2)" width="90" x="447" y="187">
-        <parameter key="result_file" value="C:\Users\isaac\OneDrive\Documents\IT Study\Data Analytics\Brighton MSc\Modules\Data Mining and Knowledge Discovery in Data\assessment\adult\rm\report\naive-bayes.mod.res"/>
-        <parameter key="encoding" value="SYSTEM"/>
-      </operator>
-      <operator activated="true" class="write_as_text" compatibility="7.4.000" expanded="true" height="82" name="Write as Text" width="90" x="514" y="85">
-        <parameter key="result_file" value="C:\Users\isaac\OneDrive\Documents\IT Study\Data Analytics\Brighton MSc\Modules\Data Mining and Knowledge Discovery in Data\assessment\adult\rm\report\naive-bayes.res"/>
+      <operator activated="true" class="write_as_text" compatibility="7.4.000" expanded="true" height="82" name="Write as Text" width="90" x="514" y="34">
+        <parameter key="result_file" value="C:\Users\isaac\OneDrive\Documents\IT Study\Data Analytics\Brighton MSc\Modules\Data Mining and Knowledge Discovery in Data\assessment\adult\rm\report\logit.res"/>
         <parameter key="encoding" value="SYSTEM"/>
       </operator>
       <connect from_op="Retrieve adult" from_port="output" to_op="Cross Validation" to_port="example set"/>
-      <connect from_op="Cross Validation" from_port="model" to_op="Write as Text (2)" to_port="input 1"/>
       <connect from_op="Cross Validation" from_port="performance 1" to_op="Write as Text" to_port="input 1"/>
       <connect from_op="Write as Text" from_port="input 1" to_port="result 1"/>
       <portSpacing port="source_input 1" spacing="0"/>

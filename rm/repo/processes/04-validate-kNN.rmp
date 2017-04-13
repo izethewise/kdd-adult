@@ -6,6 +6,7 @@
   </context>
   <operator activated="true" class="process" compatibility="7.4.000" expanded="true" name="Process">
     <parameter key="logverbosity" value="init"/>
+    <parameter key="resultfile" value="C:\Users\isaac\OneDrive\Documents\IT Study\Data Analytics\Brighton MSc\Modules\Data Mining and Knowledge Discovery in Data\assessment\adult\rm\report\kNN.res"/>
     <parameter key="random_seed" value="2001"/>
     <parameter key="send_mail" value="never"/>
     <parameter key="notification_email" value=""/>
@@ -68,8 +69,18 @@
           <portSpacing port="sink_performance 2" spacing="0"/>
         </process>
       </operator>
+      <operator activated="true" class="write_as_text" compatibility="7.4.000" expanded="true" height="82" name="Write as Text (2)" width="90" x="447" y="187">
+        <parameter key="result_file" value="C:\Users\isaac\OneDrive\Documents\IT Study\Data Analytics\Brighton MSc\Modules\Data Mining and Knowledge Discovery in Data\assessment\adult\rm\report\kNN.mod.res"/>
+        <parameter key="encoding" value="SYSTEM"/>
+      </operator>
+      <operator activated="true" class="write_as_text" compatibility="7.4.000" expanded="true" height="82" name="Write as Text" width="90" x="514" y="34">
+        <parameter key="result_file" value="C:\Users\isaac\OneDrive\Documents\IT Study\Data Analytics\Brighton MSc\Modules\Data Mining and Knowledge Discovery in Data\assessment\adult\rm\report\kNN.res"/>
+        <parameter key="encoding" value="SYSTEM"/>
+      </operator>
       <connect from_op="Retrieve adult" from_port="output" to_op="Cross Validation" to_port="example set"/>
-      <connect from_op="Cross Validation" from_port="performance 1" to_port="result 1"/>
+      <connect from_op="Cross Validation" from_port="model" to_op="Write as Text (2)" to_port="input 1"/>
+      <connect from_op="Cross Validation" from_port="performance 1" to_op="Write as Text" to_port="input 1"/>
+      <connect from_op="Write as Text" from_port="input 1" to_port="result 1"/>
       <portSpacing port="source_input 1" spacing="0"/>
       <portSpacing port="sink_result 1" spacing="0"/>
       <portSpacing port="sink_result 2" spacing="0"/>

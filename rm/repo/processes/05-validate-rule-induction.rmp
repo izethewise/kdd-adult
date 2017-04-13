@@ -18,7 +18,7 @@
       <operator activated="true" class="concurrency:cross_validation" compatibility="7.4.000" expanded="true" height="145" name="Cross Validation" width="90" x="313" y="34">
         <parameter key="split_on_batch_attribute" value="false"/>
         <parameter key="leave_one_out" value="false"/>
-        <parameter key="number_of_folds" value="10"/>
+        <parameter key="number_of_folds" value="2"/>
         <parameter key="sampling_type" value="automatic"/>
         <parameter key="use_local_random_seed" value="false"/>
         <parameter key="local_random_seed" value="1992"/>
@@ -58,8 +58,18 @@
           <portSpacing port="sink_performance 2" spacing="0"/>
         </process>
       </operator>
+      <operator activated="true" class="write_as_text" compatibility="7.4.000" expanded="true" height="82" name="Write as Text (2)" width="90" x="514" y="289">
+        <parameter key="result_file" value="C:\Users\isaac\OneDrive\Documents\IT Study\Data Analytics\Brighton MSc\Modules\Data Mining and Knowledge Discovery in Data\assessment\adult\rm\report\rule-induction.mod.res"/>
+        <parameter key="encoding" value="SYSTEM"/>
+      </operator>
+      <operator activated="true" class="write_as_text" compatibility="7.4.000" expanded="true" height="82" name="Write as Text" width="90" x="514" y="85">
+        <parameter key="result_file" value="C:\Users\isaac\OneDrive\Documents\IT Study\Data Analytics\Brighton MSc\Modules\Data Mining and Knowledge Discovery in Data\assessment\adult\rm\report\rule-induction.res"/>
+        <parameter key="encoding" value="SYSTEM"/>
+      </operator>
       <connect from_op="Retrieve adult" from_port="output" to_op="Cross Validation" to_port="example set"/>
-      <connect from_op="Cross Validation" from_port="performance 1" to_port="result 1"/>
+      <connect from_op="Cross Validation" from_port="model" to_op="Write as Text (2)" to_port="input 1"/>
+      <connect from_op="Cross Validation" from_port="performance 1" to_op="Write as Text" to_port="input 1"/>
+      <connect from_op="Write as Text" from_port="input 1" to_port="result 1"/>
       <portSpacing port="source_input 1" spacing="0"/>
       <portSpacing port="sink_result 1" spacing="0"/>
       <portSpacing port="sink_result 2" spacing="0"/>
