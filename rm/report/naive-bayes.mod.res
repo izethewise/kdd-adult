@@ -1,5 +1,5 @@
-13.04.2017 16:01:35 Results of ResultWriter 'Write as Text (2)' [1]: 
-13.04.2017 16:01:35 Distribution model for label attribute income
+20.04.2017 14:58:42 Results of ResultWriter 'Write as Text (2)' [1]: 
+20.04.2017 14:58:42 Distribution model for label attribute income
 
 
 Class <=50K (0.759)

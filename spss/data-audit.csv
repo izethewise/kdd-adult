@@ -1,0 +1,33 @@
+Field,Measurement,Min,Max,Mean,Std. Dev,Skewness,Unique,Valid
+age,Continuous,17,90,38.582,13.640,0.559,--,32561
+workclass,Categorical,--,--,--,--,--,9,32561
+fnlwgt,Continuous,12285,1484705,189778.367,105549.978,1.447,--,32561
+education,Categorical,--,--,--,--,--,16,32561
+education-num,Categorical,--,--,--,--,--,16,32561
+marital-status,Categorical,--,--,--,--,--,7,32561
+occupation,Categorical,--,--,--,--,--,15,32561
+relationship,Categorical,--,--,--,--,--,6,32561
+race,Categorical,--,--,--,--,--,5,32561
+sex,Categorical,--,--,--,--,--,2,32561
+capital-gain,Continuous,0,99999,1077.649,7385.292,11.954,--,32561
+capital-loss,Continuous,0,4356,87.304,402.960,4.595,--,32561
+hours-per-week,Continuous,1,99,40.437,12.347,0.228,--,32561
+native-country,Categorical,--,--,--,--,--,42,32561
+income,Categorical,--,--,--,--,--,2,32561
+
+Field,Measurement,Outliers,Extremes,Action,Impute Missing,Method,% Complete,Valid Records,Null Value,Empty String,White Space,Blank Value
+age,Continuous,121,0,None,Never,Fixed,100.000,32561,0,0,0,0
+workclass,Categorical,--,--,--,Never,Fixed,100.000,32561,0,0,0,0
+fnlwgt,Continuous,294,53,None,Never,Fixed,100.000,32561,0,0,0,0
+education,Categorical,--,--,--,Never,Fixed,100.000,32561,0,0,0,0
+education-num,Categorical,--,--,--,Never,Fixed,100.000,32561,0,0,0,0
+marital-status,Categorical,--,--,--,Never,Fixed,100.000,32561,0,0,0,0
+occupation,Categorical,--,--,--,Never,Fixed,100.000,32561,0,0,0,0
+relationship,Categorical,--,--,--,Never,Fixed,100.000,32561,0,0,0,0
+race,Categorical,--,--,--,Never,Fixed,100.000,32561,0,0,0,0
+sex,Categorical,--,--,--,Never,Fixed,100.000,32561,0,0,0,0
+capital-gain,Continuous,54,161,None,Never,Fixed,100.000,32561,0,0,0,0
+capital-loss,Continuous,1227,243,None,Never,Fixed,100.000,32561,0,0,0,0
+hours-per-week,Continuous,440,0,None,Never,Fixed,100.000,32561,0,0,0,0
+native-country,Categorical,--,--,--,Never,Fixed,100.000,32561,0,0,0,0
+income,Categorical,--,--,--,Never,Fixed,100.000,32561,0,0,0,0

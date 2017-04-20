@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><process version="7.4.000">
+  <context>
+    <input/>
+    <output/>
+    <macros/>
+  </context>
+  <operator activated="true" class="process" compatibility="7.4.000" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="SYSTEM"/>
+    <process expanded="true">
+      <operator activated="true" class="retrieve" compatibility="7.4.000" expanded="true" height="68" name="Retrieve adult" width="90" x="45" y="34">
+        <parameter key="repository_entry" value="../data/adult"/>
+      </operator>
+      <operator activated="true" class="naive_bayes" compatibility="7.4.000" expanded="true" height="82" name="Naive Bayes" width="90" x="179" y="34">
+        <parameter key="laplace_correction" value="true"/>
+      </operator>
+      <operator activated="true" class="retrieve" compatibility="7.4.000" expanded="true" height="68" name="Retrieve adult.test" width="90" x="179" y="136">
+        <parameter key="repository_entry" value="../data/adult.test"/>
+      </operator>
+      <operator activated="true" class="apply_model" compatibility="7.4.000" expanded="true" height="82" name="Apply Model" width="90" x="313" y="34">
+        <list key="application_parameters"/>
+        <parameter key="create_view" value="false"/>
+      </operator>
+      <operator activated="true" class="write_as_text" compatibility="7.4.000" expanded="true" height="82" name="Write as Text (2)" width="90" x="447" y="136">
+        <parameter key="result_file" value="C:\Users\isaac\OneDrive\Documents\IT Study\Data Analytics\Brighton MSc\Modules\Data Mining and Knowledge Discovery in Data\assessment\adult\rm\report\naive-bayes-test.mod.res"/>
+        <parameter key="encoding" value="SYSTEM"/>
+      </operator>
+      <operator activated="true" class="performance" compatibility="7.4.000" expanded="true" height="82" name="Performance" width="90" x="447" y="34">
+        <parameter key="use_example_weights" value="true"/>
+      </operator>
+      <operator activated="true" class="write_as_text" compatibility="7.4.000" expanded="true" height="82" name="Write as Text" width="90" x="581" y="34">
+        <parameter key="result_file" value="C:\Users\isaac\OneDrive\Documents\IT Study\Data Analytics\Brighton MSc\Modules\Data Mining and Knowledge Discovery in Data\assessment\adult\rm\report\naive-bayes-test.res"/>
+        <parameter key="encoding" value="SYSTEM"/>
+      </operator>
+      <connect from_op="Retrieve adult" from_port="output" to_op="Naive Bayes" to_port="training set"/>
+      <connect from_op="Naive Bayes" from_port="model" to_op="Apply Model" to_port="model"/>
+      <connect from_op="Retrieve adult.test" from_port="output" to_op="Apply Model" to_port="unlabelled data"/>
+      <connect from_op="Apply Model" from_port="labelled data" to_op="Performance" to_port="labelled data"/>
+      <connect from_op="Apply Model" from_port="model" to_op="Write as Text (2)" to_port="input 1"/>
+      <connect from_op="Performance" from_port="performance" to_op="Write as Text" to_port="input 1"/>
+      <connect from_op="Write as Text" from_port="input 1" to_port="result 1"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+      <portSpacing port="sink_result 2" spacing="0"/>
+    </process>
+  </operator>
+</process>

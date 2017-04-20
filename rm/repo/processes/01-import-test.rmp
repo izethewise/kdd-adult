@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><process version="7.4.000">
+  <context>
+    <input/>
+    <output/>
+    <macros/>
+  </context>
+  <operator activated="true" class="process" compatibility="7.4.000" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="SYSTEM"/>
+    <process expanded="true">
+      <operator activated="true" class="read_csv" compatibility="7.4.000" expanded="true" height="68" name="Read CSV" width="90" x="45" y="34">
+        <parameter key="csv_file" value="C:\Users\isaac\OneDrive\Documents\IT Study\Data Analytics\Brighton MSc\Modules\Data Mining and Knowledge Discovery in Data\assessment\adult\adult.test.imp"/>
+        <parameter key="column_separators" value=","/>
+        <parameter key="trim_lines" value="false"/>
+        <parameter key="use_quotes" value="true"/>
+        <parameter key="quotes_character" value="&quot;"/>
+        <parameter key="escape_character" value="\"/>
+        <parameter key="skip_comments" value="false"/>
+        <parameter key="comment_characters" value="#"/>
+        <parameter key="parse_numbers" value="true"/>
+        <parameter key="decimal_character" value="."/>
+        <parameter key="grouped_digits" value="false"/>
+        <parameter key="grouping_character" value=","/>
+        <parameter key="date_format" value=""/>
+        <parameter key="first_row_as_names" value="false"/>
+        <list key="annotations"/>
+        <parameter key="time_zone" value="SYSTEM"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="encoding" value="SYSTEM"/>
+        <list key="data_set_meta_data_information"/>
+        <parameter key="read_not_matching_values_as_missings" value="true"/>
+        <parameter key="datamanagement" value="double_array"/>
+        <parameter key="data_management" value="auto"/>
+      </operator>
+      <operator activated="true" class="rename" compatibility="7.4.000" expanded="true" height="82" name="Rename" width="90" x="179" y="34">
+        <parameter key="old_name" value="att15"/>
+        <parameter key="new_name" value="income"/>
+        <list key="rename_additional_attributes">
+          <parameter key="att1" value="age"/>
+          <parameter key="att2" value="workclass"/>
+          <parameter key="att3" value="fnlwgt"/>
+          <parameter key="att4" value="education"/>
+          <parameter key="att5" value="education-num"/>
+          <parameter key="att6" value="marital-status"/>
+          <parameter key="att7" value="occupation"/>
+          <parameter key="att8" value="relationship"/>
+          <parameter key="att9" value="race"/>
+          <parameter key="att10" value="sex"/>
+          <parameter key="att11" value="capital-gain"/>
+          <parameter key="att12" value="capital-loss"/>
+          <parameter key="att13" value="hours-per-week"/>
+          <parameter key="att14" value="native-country"/>
+        </list>
+      </operator>
+      <operator activated="true" class="set_role" compatibility="7.4.000" expanded="true" height="82" name="Set Role" width="90" x="313" y="34">
+        <parameter key="attribute_name" value="income"/>
+        <parameter key="target_role" value="label"/>
+        <list key="set_additional_roles"/>
+      </operator>
+      <operator activated="true" class="store" compatibility="7.4.000" expanded="true" height="68" name="Store (2)" width="90" x="447" y="34">
+        <parameter key="repository_entry" value="../data/adult.test"/>
+      </operator>
+      <connect from_op="Read CSV" from_port="output" to_op="Rename" to_port="example set input"/>
+      <connect from_op="Rename" from_port="example set output" to_op="Set Role" to_port="example set input"/>
+      <connect from_op="Set Role" from_port="example set output" to_op="Store (2)" to_port="input"/>
+      <connect from_op="Store (2)" from_port="through" to_port="result 1"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+      <portSpacing port="sink_result 2" spacing="0"/>
+    </process>
+  </operator>
+</process>
