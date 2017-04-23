@@ -19,7 +19,7 @@
       <operator activated="true" class="concurrency:cross_validation" compatibility="7.4.000" expanded="true" height="145" name="Cross Validation" width="90" x="313" y="34">
         <parameter key="split_on_batch_attribute" value="false"/>
         <parameter key="leave_one_out" value="false"/>
-        <parameter key="number_of_folds" value="10"/>
+        <parameter key="number_of_folds" value="2"/>
         <parameter key="sampling_type" value="automatic"/>
         <parameter key="use_local_random_seed" value="false"/>
         <parameter key="local_random_seed" value="1992"/>

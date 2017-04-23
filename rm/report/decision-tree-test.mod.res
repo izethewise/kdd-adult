@@ -1,5 +1,5 @@
-20.04.2017 14:27:30 Results of ResultWriter 'Write as Text (2)' [1]: 
-20.04.2017 14:27:30 
+21.04.2017 15:19:50 Results of ResultWriter 'Write as Text (2)' [1]: 
+21.04.2017 15:19:50 
 capital-gain > 7073.500
 |   age > 18.500
 |   |   age > 20.500: >50K {<=50K=16, >50K=1378}

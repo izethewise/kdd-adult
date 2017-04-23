@@ -1,8 +1,8 @@
-20.04.2017 15:32:11 Results of ResultWriter 'Write as Text (2)' [1]: 
-20.04.2017 15:32:11 Model Metrics Type: BinomialGLM
+21.04.2017 15:36:14 Results of ResultWriter 'Write as Text (2)' [1]: 
+21.04.2017 15:36:14 Model Metrics Type: BinomialGLM
  Description: N/A
- model id: rm-h2o-model-generalized_linear_model-507152
- frame id: rm-h2o-frame-generalized_linear_model-648131
+ model id: rm-h2o-model-generalized_linear_model-820064
+ frame id: rm-h2o-frame-generalized_linear_model-528349
  MSE: 0.10263907
  R^2: 0.4385795
  AUC: 0.90571356
@@ -36,15 +36,15 @@ Gains/Lift Table (Avg response rate: 24.08 %):
  residual deviance: 20887.314
 GLM Model (summary):
    Family  Link                                Regularization Number of Predictors Total Number of Active Predictors Number of Iterations                               Training Frame
- binomial logit Elastic Net (alpha = 0.5, lambda = 2.866E-4 )                         88                          44                    7 rm-h2o-frame-generalized_linear_model-648131
+ binomial logit Elastic Net (alpha = 0.5, lambda = 2.866E-4 )                         88                          44                    7 rm-h2o-frame-generalized_linear_model-528349
 Scoring History:
            timestamp   duration iteration negative_log_likelihood objective
- 2017-04-20 15:32:07  0.000 sec         0             11989.31026   0.36988
- 2017-04-20 15:32:07  0.041 sec         1             10825.13912   0.33476
- 2017-04-20 15:32:07  0.066 sec         2             10496.07421   0.32544
- 2017-04-20 15:32:07  0.090 sec         3             10448.48082   0.32440
- 2017-04-20 15:32:07  0.114 sec         4             10445.20790   0.32437
- 2017-04-20 15:32:07  0.171 sec         5             10443.57835   0.32433
- 2017-04-20 15:32:07  0.194 sec         6             10443.65676   0.32433
+ 2017-04-21 15:36:10  0.000 sec         0             11989.31026   0.36988
+ 2017-04-21 15:36:10  0.015 sec         1             10825.13912   0.33476
+ 2017-04-21 15:36:10  0.047 sec         2             10496.07421   0.32544
+ 2017-04-21 15:36:10  0.062 sec         3             10448.48082   0.32440
+ 2017-04-21 15:36:10  0.093 sec         4             10445.20790   0.32437
+ 2017-04-21 15:36:10  0.145 sec         5             10443.57835   0.32433
+ 2017-04-21 15:36:10  0.176 sec         6             10443.65676   0.32433
 
 H2O version: 3.8.2.6.RAPIDMINER.2

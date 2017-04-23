@@ -1,5 +1,5 @@
-20.04.2017 14:45:37 Results of ResultWriter 'Write as Text (2)' [1]: 
-20.04.2017 14:45:37 PerformanceVector:
+21.04.2017 15:30:13 Results of ResultWriter 'Write as Text (2)' [1]: 
+21.04.2017 15:30:13 PerformanceVector:
 accuracy: 82.48%
 ConfusionMatrix:
 True:	<=50K	>50K

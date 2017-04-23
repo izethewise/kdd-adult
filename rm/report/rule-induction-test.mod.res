@@ -1,5 +1,5 @@
-20.04.2017 14:43:26 Results of ResultWriter 'Write as Text' [1]: 
-20.04.2017 14:43:26 if marital-status = Never-married then <=50K  (10192 / 491)
+21.04.2017 15:28:57 Results of ResultWriter 'Write as Text' [1]: 
+21.04.2017 15:28:57 if marital-status = Never-married then <=50K  (10192 / 491)
 if education-num ? 11.500 then <=50K  (11909 / 3537)
 if marital-status = Married-civ-spouse and capital-gain > 5095.500 then >50K  (3 / 712)
 if marital-status = Married-civ-spouse and capital-loss > 1782.500 then >50K  (18 / 405)

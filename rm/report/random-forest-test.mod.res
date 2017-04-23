@@ -1,5 +1,5 @@
-20.04.2017 14:50:23 Results of ResultWriter 'Write as Text' [1]: 
-20.04.2017 14:50:23 1) Tree
+21.04.2017 15:35:07 Results of ResultWriter 'Write as Text' [1]: 
+21.04.2017 15:35:07 1) Tree
 ---
 
 capital-loss > 1881.500: >50K {<=50K=217, >50K=671}

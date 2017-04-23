@@ -1,21 +1,21 @@
-20.04.2017 15:00:14 Results of ResultWriter 'Write as Text' [1]: 
-20.04.2017 15:00:14 PerformanceVector:
-accuracy: 84.61% +/- 0.34% (mikro: 84.61%)
+21.04.2017 15:23:55 Results of ResultWriter 'Write as Text' [1]: 
+21.04.2017 15:23:55 PerformanceVector:
+accuracy: 83.90% +/- 0.17% (mikro: 83.90%)
 ConfusionMatrix:
 True:	<=50K	>50K
-<=50K:	22579	2871
->50K:	2141	4970
-precision: 69.91% +/- 1.12% (mikro: 69.89%) (positive class: >50K)
+<=50K:	22544	3065
+>50K:	2176	4776
+precision: 68.72% +/- 0.81% (mikro: 68.70%) (positive class: >50K)
 ConfusionMatrix:
 True:	<=50K	>50K
-<=50K:	22579	2871
->50K:	2141	4970
-recall: 63.38% +/- 0.90% (mikro: 63.38%) (positive class: >50K)
+<=50K:	22544	3065
+>50K:	2176	4776
+recall: 60.91% +/- 0.66% (mikro: 60.91%) (positive class: >50K)
 ConfusionMatrix:
 True:	<=50K	>50K
-<=50K:	22579	2871
->50K:	2141	4970
-AUC (optimistic): 0.927 +/- 0.004 (mikro: 0.927) (positive class: >50K)
-AUC: 0.872 +/- 0.006 (mikro: 0.872) (positive class: >50K)
-AUC (pessimistic): 0.820 +/- 0.009 (mikro: 0.820) (positive class: >50K)
+<=50K:	22544	3065
+>50K:	2176	4776
+AUC (optimistic): 0.923 +/- 0.001 (mikro: 0.923) (positive class: >50K)
+AUC: 0.866 +/- 0.000 (mikro: 0.866) (positive class: >50K)
+AUC (pessimistic): 0.813 +/- 0.000 (mikro: 0.813) (positive class: >50K)
 
